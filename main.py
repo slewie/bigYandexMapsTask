@@ -1,8 +1,12 @@
 import pygame
 import requests
+import os
+
+MAP_FILE = ''
 
 
 def get_mapimg(static_par):
+    global MAP_FILE
     response = requests.get(static_server, params=static_par)
 
     # if response:
@@ -10,10 +14,10 @@ def get_mapimg(static_par):
     # return None
 
     # Запишем полученное изображение в файл.
-    map_file = "map.png"
-    with open(map_file, "wb") as file:
+    MAP_FILE = "map.png"
+    with open(MAP_FILE, "wb") as file:
         file.write(response.content)
-    return pygame.image.load(map_file)
+    return pygame.image.load(MAP_FILE)
 
 
 static_server = "https://static-maps.yandex.ru/1.x/?"
@@ -41,3 +45,4 @@ while running:
     screen.blit(get_mapimg(static_params), (0, 0))
 
     pygame.display.flip()
+os.remove(MAP_FILE)
