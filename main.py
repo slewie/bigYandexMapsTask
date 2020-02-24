@@ -23,11 +23,11 @@ geocoder_server = "https://geocode-maps.yandex.ru/1.x/?"
 geocoder_params = {"apikey": "40d1649f-0493-4b70-98ba-98533de7710b",
                    "geocode": None}
 
-static_params["z"] = input("введите масштаб(0-17):")
-static_params["ll"] = input("долгота и широта ч/з запятую:")
+static_params["z"] = input("введите масштаб(0-17): ")
+static_params["ll"] = input("долгота и широта ч/з запятую: ")
 
 pygame.init()
-size = WIDTH, HEIGHT = 500, 500
+size = WIDTH, HEIGHT = 600, 450
 screen = pygame.display.set_mode(size)
 
 running = True
